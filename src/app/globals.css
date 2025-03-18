@@ -25,6 +25,7 @@
   --color-milk: #faeade;
   --color-black: #222123;
   --color-primary-light-brown: #fce1cd;
+  --color-background-section: #7f3b2d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,11 +34,29 @@
     --foreground: #ededed;
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: 'Antonio', Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 @keyframes slide-up {
@@ -68,4 +87,55 @@ body {
 
 .animate-reveal-horizontal {
   animation: reveal-horizontal 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-scroll-up-out {
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: exit;
+}
+
+@keyframes fade-in {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.7) rotate(8deg) translateY(40%);
+  }
+}
+
+.animation-scroll-reveal h1 {
+  color: hsl(0 0% 100% / 0.1);
+  background-clip: text;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-image: linear-gradient(90deg, hsl(0, 0%, 100%), hsl(0, 0%, 100%));
+  animation: animation-scroll-reveal linear forwards;
+  animation-timeline: view();
+  animation-range-start: contain 25vh;
+  animation-range-end: contain 26vh;
+}
+@keyframes animation-scroll-reveal {
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.animation-scroll-reveal-fade-in {
+  opacity: 0;
+  animation: animation-scroll-reveal-in linear forwards;
+  animation-timeline: view();
+  animation-range-start: contain 20vh;
+  animation-range-end: contain 30vh;
+}
+
+@keyframes animation-scroll-reveal-in {
+  0% {
+    clip-path: inset(0 50% 0 0%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }
