@@ -49,7 +49,9 @@ body {
   font-family: 'Antonio', Arial, Helvetica, sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -57,6 +59,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
+}
+
+@scroll-timeline scroll-fade-up-timeline {
+  source: auto;
+  orientation: block;
+  range: entry to contain 20vh;
 }
 
 @keyframes slide-up {
@@ -112,8 +120,8 @@ body {
   background-image: linear-gradient(90deg, hsl(0, 0%, 100%), hsl(0, 0%, 100%));
   animation: animation-scroll-reveal linear forwards;
   animation-timeline: view();
-  animation-range-start: contain 25vh;
-  animation-range-end: contain 26vh;
+  animation-range-start: contain 20vh;
+  animation-range-end: contain 30vh;
 }
 @keyframes animation-scroll-reveal {
   100% {
@@ -137,5 +145,21 @@ body {
   100% {
     clip-path: inset(0 0 0 0);
     opacity: 1;
+  }
+}
+
+.animation-scroll-fade-up span {
+  /* opacity: 0; */
+  animation: slade-scroll-up linear forwards;
+  animation-timeline: view();
+  animation-range-start: entry;
+}
+
+@keyframes slade-scroll-up {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }
