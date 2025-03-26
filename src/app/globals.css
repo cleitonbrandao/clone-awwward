@@ -156,7 +156,7 @@ body {
 }
 
 .animation-scroll-fade-up span {
-  /* opacity: 0; */
+  
   animation: slade-scroll-up linear forwards;
   animation-timeline: view();
   animation-range-start: entry;

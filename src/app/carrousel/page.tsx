@@ -75,10 +75,10 @@ export default function Carrousel() {
     if (freakingRef.current) {
       gsap.fromTo(
         freakingRef.current,
-        { clipPath: 'inset(0 50% 0 50%)', opacity: 0 }, // Começa com o elemento "fechado" no centro
+        { clipPath: 'inset(0 50% 0 50%)', opacity: 0 }, 
         {
-          clipPath: 'inset(0% 0% 0% 0%)', // Expande para revelar o elemento
-          opacity: 1, // Torna o elemento visível
+          clipPath: 'inset(0% 0% 0% 0%)', 
+          opacity: 1, 
           duration: 0.7,
           ease: 'power2.out',
           scrollTrigger: {
@@ -160,7 +160,7 @@ export default function Carrousel() {
 
         gsap.to(image1, {
           x: xPercent * 20,
-          // y: yPercent * 20,
+          
           duration: 0.3,
           ease: 'power2.out',
         });
@@ -219,17 +219,17 @@ export default function Carrousel() {
       const items = gsap.utils.toArray<HTMLDivElement>('.carrousel-item');
 
       gsap.to(items, {
-        xPercent: -100 * (items.length - 1), // Move todos os itens para a esquerda
+        xPercent: -100 * (items.length - 1), 
         ease: 'none',
         scrollTrigger: {
           trigger: carousel,
-          pin: true, // Fixa o carrossel enquanto o scroll acontece
-          scrub: 1, // Sincroniza o movimento com o scroll
-          snap: 1 / (items.length - 1), // Faz o snap para cada item
-          start: 'top top', // Inicia o carrossel no topo
+          pin: true, 
+          scrub: 1, 
+          snap: 1 / (items.length - 1), 
+          start: 'top top', 
           end: () => `+=${carousel.offsetWidth * (items.length - 1)}`,
           invalidateOnRefresh: true,
-          // markers: true,
+          
         },
       });
     }

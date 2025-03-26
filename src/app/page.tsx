@@ -53,36 +53,36 @@ export default function Home() {
         photo_7.current,
       ];
 
-      // Timeline para animar as fotos
+      
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionPhotos.current,
           start: "top top",
-          end: "+=2000", // Ajuste o valor para controlar o tempo total da animação
+          end: "+=2000", 
           scrub: true,
-          pin: true, // Mantém a seção fixa enquanto as animações ocorrem
-          markers: true, // Remova em produção
+          pin: true, 
+          markers: true, 
         },
       });
 
-      // Adiciona animações para cada foto
+      
       photos.forEach((photo) => {
         timeline.fromTo(
           photo,
           { y: "170%", x: "50%" },
           { y: "20%", x: "0%", duration: 0.5, ease: "power2.out" },
-          `+=0.5` // Tempo entre as animações de cada foto
+          `+=0.5` 
         );
       });
       timeline.to(
         photos,
         {
-          y: "-100%", // Move as fotos para fora da tela para cima
-          opacity: 0, // Reduz a opacidade para 0
-          duration: 1.5, // Duração da animação de saída
-          ease: "power2.inOut", // Transição suave
+          y: "-100%", 
+          opacity: 0, 
+          duration: 1.5, 
+          ease: "power2.inOut", 
         },
-        "+=0.5" // Adiciona um pequeno atraso após a última animação
+        "+=0.5" 
       );
       timeline.set(sectionPhotos.current, { display: "none" });
 
@@ -93,10 +93,10 @@ export default function Home() {
         scrollTrigger: {
           trigger: sectionPhotoTexts.current,
           start: "top top",
-          end: "+=1000", // Ajuste o valor para controlar o tempo total da animação
+          end: "+=1000", 
           scrub: true,
-          pin: true, // Mantém a seção fixa enquanto as animações ocorrem
-          markers: true, // Remova em produção
+          pin: true, 
+          markers: true, 
         },
       });
 
@@ -105,7 +105,7 @@ export default function Home() {
           text,
           { y: "0%" },
           { y: "0%", duration: 0.5, ease: "power2.out" },
-          `+=0.5` // Tempo entre as animações de cada foto
+          `+=0.5` 
         );
       });
     }
@@ -463,7 +463,7 @@ export default function Home() {
             start: 'top 50%',
             end: '+=3000',
             scrub: true,
-            // markers: true,
+            
           },
         }
       );
