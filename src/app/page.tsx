@@ -42,7 +42,15 @@ export default function Home() {
 
   const sectionPhotoTexts = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (photo_1.current && photo_2.current && photo_3.current && photo_4.current && photo_5.current && photo_6.current && photo_7.current) {
+    if (
+      photo_1.current &&
+      photo_2.current &&
+      photo_3.current &&
+      photo_4.current &&
+      photo_5.current &&
+      photo_6.current &&
+      photo_7.current
+    ) {
       const photos = [
         photo_1.current,
         photo_2.current,
@@ -53,59 +61,60 @@ export default function Home() {
         photo_7.current,
       ];
 
-      
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionPhotos.current,
-          start: "top top",
-          end: "+=2000", 
+          start: 'top top',
+          end: '+=2000',
           scrub: true,
-          pin: true, 
-          markers: true, 
+          pin: true,
+          markers: true,
         },
       });
 
-      
       photos.forEach((photo) => {
         timeline.fromTo(
           photo,
-          { y: "170%", x: "50%" },
-          { y: "20%", x: "0%", duration: 0.5, ease: "power2.out" },
-          `+=0.5` 
+          { y: '200%', x: '50%' },
+          { y: '20%', x: '0%', duration: 0.5, ease: 'power2.out' },
+          `+=0.5`
         );
       });
       timeline.to(
         photos,
         {
-          y: "-100%", 
-          opacity: 0, 
-          duration: 1.5, 
-          ease: "power2.inOut", 
+          y: '-100%',
+          opacity: 0,
+          duration: 1.5,
+          ease: 'power2.inOut',
         },
-        "+=0.5" 
+        '+=0.5'
       );
-      timeline.set(sectionPhotos.current, { display: "none" });
-
+      timeline.set(sectionPhotos.current, { display: 'none' });
     }
-    if(textWhatsRef && textEveryoneRef && textTalkingRef) {
-      const texts = [textWhatsRef.current, textEveryoneRef.current, textTalkingRef.current];
+    if (textWhatsRef && textEveryoneRef && textTalkingRef) {
+      const texts = [
+        textWhatsRef.current,
+        textEveryoneRef.current,
+        textTalkingRef.current,
+      ];
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionPhotoTexts.current,
-          start: "top top",
-          end: "+=1000", 
+          start: 'top top',
+          end: '+=1000',
           scrub: true,
-          pin: true, 
-          markers: true, 
+          pin: true,
+          markers: true,
         },
       });
 
       texts.forEach((text) => {
         timeline.fromTo(
           text,
-          { y: "0%" },
-          { y: "0%", duration: 0.5, ease: "power2.out" },
-          `+=0.5` 
+          { y: '0%' },
+          { y: '0%', duration: 0.5, ease: 'power2.out' },
+          `+=0.5`
         );
       });
     }
@@ -463,7 +472,6 @@ export default function Home() {
             start: 'top 50%',
             end: '+=3000',
             scrub: true,
-            
           },
         }
       );
@@ -750,10 +758,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative z-20 w-full h-[500vh] bg-milk flex items-center justify-center">
+      <div className="relative z-20 w-full h-[360vh] bg-milk flex items-center justify-center">
         <div className="absolute top-0">
           <div ref={sectionPhotoTexts}>
-            <div ref={textWhatsRef} className="flex text-center h-90 uppercase font-bold text-black text-[20vw]">
+            <div
+              ref={textWhatsRef}
+              className="flex text-center h-90 uppercase font-bold text-black text-[20vw]"
+            >
               {`what's`}
             </div>
             <div
@@ -762,12 +773,21 @@ export default function Home() {
             >
               everyone
             </div>
-            <div ref={textTalkingRef} className="flex text-center h-90 uppercase font-bold text-black text-[20vw] z-10">
+            <div
+              ref={textTalkingRef}
+              className="flex text-center h-90 uppercase font-bold text-black text-[20vw] z-10"
+            >
               talking
             </div>
           </div>
-          <div ref={sectionPhotos} className="flex p-12 justify-around w-screen h-screen">
-            <div ref={photo_1} className="w-140 h-130  -rotate-6 border-8 border-dark-brown bg-milk rounded-2xl ">
+          <div
+            ref={sectionPhotos}
+            className="flex p-12 justify-around w-screen h-screen"
+          >
+            <div
+              ref={photo_1}
+              className="w-140 h-130  -rotate-6 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -778,7 +798,10 @@ export default function Home() {
                 <source src="/animation/video-1.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_2} className="w-140 h-130  rotate-4 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_2}
+              className="w-140 h-130  rotate-4 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -789,7 +812,10 @@ export default function Home() {
                 <source src="/animation/video-2.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_3} className="w-140 h-130  -rotate-7 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_3}
+              className="w-140 h-130  -rotate-7 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -800,7 +826,10 @@ export default function Home() {
                 <source src="/animation/video-3.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_4} className="w-140 h-130  rotate-5 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_4}
+              className="w-140 h-130  rotate-5 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -811,7 +840,10 @@ export default function Home() {
                 <source src="/animation/video-4.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_5} className="w-140 h-130  -rotate-5 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_5}
+              className="w-140 h-130  -rotate-5 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -822,7 +854,10 @@ export default function Home() {
                 <source src="/animation/video-5.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_6} className="w-140 h-130  rotate-6 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_6}
+              className="w-140 h-130  rotate-6 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -833,7 +868,10 @@ export default function Home() {
                 <source src="/animation/video-6.mp4" type="video/mp4" />
               </video>
             </div>
-            <div ref={photo_7} className="w-140 h-130  -rotate-3 -ml-16 border-8 border-dark-brown bg-milk rounded-2xl ">
+            <div
+              ref={photo_7}
+              className="w-140 h-130  -rotate-3 -ml-16 border-8 border-milk bg-milk rounded-2xl "
+            >
               <video
                 className="w-full h-full object-cover rounded-2xl"
                 autoPlay
@@ -847,7 +885,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-[110vh] bg-black"
+      <div
+        className="relative w-full h-[120vh] bg-black"
         style={{
           backgroundImage: "url('/backgrounds/splyt_caffeinated.webp')",
           backgroundSize: 'contain',
