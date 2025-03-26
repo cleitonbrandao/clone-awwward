@@ -10,9 +10,13 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "prettier.printWidth": 80,
   "prettier.tabWidth": 2,
-  "prettier.semi": true
+  "prettier.semi": true,
+  "prettier.removeComments": true
 }
